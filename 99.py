@@ -7,6 +7,7 @@ e=0
 s=0
 bl=0
 xx=''
+tok="2070396364:AAFntHYVqCjMP2q62qRAmJUaOFwjL3KpLow"
 smsg = requests.post(f"https://api.telegram.org/bot{tok}/sendMessage?chat_id={ID}&text=HI").json()
 id_msg = smsg['result']['message_id']
 user_agent = ['Instagram 113.0.0.39.122 Android (24/5.0; 515dpi; 1440x2416; huawei/google; Nexus 6P; angler; angler; en_US)',
