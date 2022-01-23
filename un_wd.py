@@ -17,9 +17,7 @@ else:
 	pass
 os.system('cls' if os.name == 'nt' else 'clear')#DOOM
 print("""\033[0;97m𝐈𝐍𝐒𝐓𝐀 : @𝐔𝐍.𝐖𝐃\n\033[1;34m𝐈𝐟 𝐲𝐨𝐮 𝐡𝐚𝐯𝐞 𝐚 𝐩𝐫𝐨𝐛𝐥𝐞𝐦, 𝐭𝐞𝐥𝐥 𝐦𝐞 𝐨𝐧 𝐈𝐧𝐬𝐭𝐚𝐠𝐫𝐚𝐦""")
-print("""ضيفوني انستا 
-@968.ops
-ابيع عدس """)
+print("\033[1;30m[\033[0;37m$\033[1;30m] \033[1;32mمتوفر انشاءات 2012 عند > ""@M0B.STORE في الانستا")
 def ops ():
 	print('\n'+'\033[1;30m='*20+'\n')
 	user=input("\033[1;30m[\033[0;37m?\033[1;30m] username or url user :\033[0;37m")
@@ -41,14 +39,27 @@ def ops ():
 		re = requests.post(url, headers=headers, cookies=cookies, data=data)
 		if re.status_code == 200:
 			pass
-		elif re.status_code == 409 or 404:
-			print("\033[1;31m[!] username bad !")
-			print('\n'+'\033[1;30m='*20+'\n')
-			ops()
-		elif re.status_code == 429:
+		elif "Please wait a few minutes before you try again." in re.text:
 			print("\033[1;31m[!] wait 5m")
 			print('\n'+'\033[1;30m='*20+'\n')
 			sleep(60*5)
+		elif '"message":"يرجى الانتظار لبضع دقائق قبل إعادة المحاولة.","status":"fail"' in re.text :
+			print("\033[1;31m[!] wait 5m")
+			print('\n'+'\033[1;30m='*20+'\n')
+			sleep(60*5)
+			ops()
+		elif '"message":"No users found","status":"fail"' in re.text :
+			print("\033[1;31m[!] No usere found")
+			print('\n'+'\033[1;30m='*20+'\n')
+			ops()
+		elif '{"message":"لم يتم العثور على مستخدمين","status":"fail"}'in re.text:
+			print("\033[1;31m[!] No usere found")
+			print('\n'+'\033[1;30m='*20+'\n')
+			ops()
+		else:
+			print("\033[1;31m[!] error")
+			print(re.text)
+			print(re.status_code)
 			ops()
 		info = re.json()
 	except:
