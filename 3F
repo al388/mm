@@ -10,7 +10,7 @@ if X == 1 :
 	try:
 		tok=input("[?] TOKEN : ")
 		ic=input("[?] ID : ")
-		requests.post(f"https://api.telegram.org/{tok}/sendMessage?chat_id={ic}&text=HI\nIf you have a problem tell me\nINSTA : @MTGR.3F")
+		t=requests.post(f"https://api.telegram.org/bot{tok}/sendMessage?chat_id={ic}&text=HI\nIf you have a problem tell me\nINSTA : @MTGR.3F")
 	except:
 		print("[!] Try with VPN ")
 		input("")
@@ -141,7 +141,7 @@ def ops ():
 		print("\033[1;30m[\033[0;37m$\033[1;30m] data : \033[1;31mFalse ")
 		x2="Flase"
 	if X == 1:
-		requests.post(f"https://api.telegram.org/{tok}/sendMessage?chat_id={ic}&text=NEW ACC\n====================\n\n⌯ 𝐮𝐬𝐞𝐫 : {user}\n\n⌯ 𝐞𝐦𝐚𝐢𝐥 : {eml}\n\n⌯ 𝐝𝐚𝐭𝐚 : {x2}\n\n=================\n\niG : @MTGR.3F")
+		requests.post(f"https://api.telegram.org/bot{tok}/sendMessage?chat_id={ic}&text=NEW ACC\n====================\n\n⌯ 𝐮𝐬𝐞𝐫 : {user}\n\n⌯ 𝐞𝐦𝐚𝐢𝐥 : {eml}\n\n⌯ 𝐝𝐚𝐭𝐚 : {x2}\n\n=================\n\niG : @MTGR.3F")
 	else:
 		pass
 	print('\n'+'\033[1;30m='*20+'\n')
