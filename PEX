@@ -12,6 +12,7 @@ if X == 1 :
 		tok=input("[?] TOKEN : ")
 		ic=input("[?] ID : ")
 		t=requests.post(f"https://api.telegram.org/bot{tok}/sendMessage?chat_id={ic}&text=HI\nIf you have a problem tell me\nINSTA : @store.pax")
+		print("\n\n")
 	except:
 		print("[!] Try with VPN ")
 		input("")
@@ -19,7 +20,7 @@ if X == 1 :
 else:
 	pass
 os.system('cls' if os.name == 'nt' else 'clear')#DOOM
-print("\033[0;97m𝙄𝙂 : @𝙨𝙩𝙤𝙧𝙚.𝙥𝙖𝙭\n\033[1;34mIf you have a problem tell me on Instagram")
+print("\033[0;97m𝗜𝗚 : @𝘀𝘁𝗼𝗿𝗲.𝗽𝗮𝘅\n\033[1;34mIf you have a problem tell me on Instagram")
 def ops ():
 	print('\n'+'\033[1;30m='*20+'\n')
 	user=input("\033[1;30m[\033[0;37m?\033[1;30m] username or url user :\033[0;37m")
