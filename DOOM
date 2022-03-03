@@ -104,7 +104,7 @@ def ops ():
 				
 			elif '@gmail.com' in info["obfuscated_email"]:
 				gmail = requests.post("https://soud.me/api/Gmail?email="+user+"@gmail.com").text
-				if ('{"info":{"Status":"Available","email":"'+user+'@gmail.com"},"message":"Success","status":200,"success":"true"}') in gmail:
+				if ('{"info":{"Status":"Available","email":"'+user+'@gmail.com"},"message":"Success","status":200,"success":"true"}') == gmail:
 					rm=requests.get("https://jftv.pythonanywhere.com/IGMail/"+user+"@gmail.com").text
 					if "Linked Or Ban" in rm:
 						print("\033[1;30m[\033[0;37m$\033[1;30m] Available : \033[1;32mYES")
