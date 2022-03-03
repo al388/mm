@@ -89,7 +89,7 @@ def ops ():
 			vx=0
 			if '@yahoo.com' in info["obfuscated_email"]:
 				req = requests.get("http://Xtools.PythonAnyWhere.Com/Yahoo/Ckeck?Email="+user+"@yahoo.com").text
-				if '{"email": "nceligailliams@yahoo.com", "status": "Available"}' == req:
+				if '{"email": '+user+'@yahoo.com", "status": "Available"}' == req:
 					pass
 				else:
 					print("\033[1;30m[\033[0;37m$\033[1;30m] Available : \033[1;31mNO"),ops()
