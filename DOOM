@@ -102,7 +102,7 @@ def ops ():
 					print("\033[1;30m[\033[0;37m$\033[1;30m] Available : \033[1;31mNO"),ops()
 				
 			elif '@gmail.com' in info["obfuscated_email"]:
-				gmail = requests.post("https://soud.me/api/Gmail?email="+user+"@gmail.com").text
+				gmail = requests.get("https://soud.me/api/Gmail?email="+user+"@gmail.com").text
 				if '{"info":{"Status":"Available"' in gmail:
 					rm=requests.get("https://jftv.pythonanywhere.com/IGMail/"+user+"@gmail.com").text
 					if "Linked Or Ban" in rm:
