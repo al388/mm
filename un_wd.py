@@ -75,50 +75,47 @@ def ops ():
 		m4=(s[-1])
 		if m1 == m3 and m2 == m4:
 			v=0
+			vx=0
 			if '@yahoo.com' in info["obfuscated_email"]:
-				s1="@yahoo.com"
+				req = requests.get("http://Xtools.PythonAnyWhere.Com/Yahoo/Ckeck?Email="+user+"@yahoo.com").text
+				if '"status": "Available"}' in req:
+					pass
+				else:
+					print("\033[1;30m[\033[0;37m$\033[1;30m] Available : \033[1;31mNO"),ops()
+				rm=requests.get("https://jftv.pythonanywhere.com/IGMail/"+user+"@yahoo.com").text
+				if "Linked Or Ban" in rm:
+					print("\033[1;30m[\033[0;37m$\033[1;30m] Available : \033[1;32mYES")
+					print("\033[1;30m[\033[0;37m$\033[1;30m] Email Available :\033[1;32m "+user+"@yahoo.com")
+					eml=user+"@yahoo.com"
+				else:
+					print("\033[1;30m[\033[0;37m$\033[1;30m] Available : \033[1;31mNO"),ops()
+				
 			elif '@gmail.com' in info["obfuscated_email"]:
-				s1="@gmail.com"
-			elif "@a**.com" in info["obfuscated_email"]:
-				s1="@aol.com"
-			elif "@hotmail.com" in info["obfuscated_email"]:
-				s1="@hotmail.com"
-			elif "@o*****.sa" in info["obfuscated_email"]:
-				s1="outlook.sa"
-			elif "@g*****.com" in info["obfuscated_email"]:
-				s1="@googlemail.com"
-			elif '@m***.com' in info["obfuscated_email"]:
-				s1="@mail.com"
-			elif '@f*****.fm' in info["obfuscated_email"]:
-				s1="@fastmail.fm"
-			else:
-				s1="@"+info["obfuscated_email"].split("@")[1]
-			if "*" in s1:
-				print("\033[1;30m[\033[0;37m$\033[1;30m] Available : \033[1;31mNO")
-				ops()
-			else:
-				eml=user+s1
-				p=requests.get("http://tweakpy-filza.ueuo.com/api.php?email="+eml).text
-				if "False" in p:
-					if v == 1:
-							rm=requests.get("https://jftv.pythonanywhere.com/IGMail/"+user+"@googlemail.com").text
-					else:
-							rm=requests.get("https://jftv.pythonanywhere.com/IGMail/"+eml).text
+				gmail = requests.get("https://soud.me/api/Gmail?email="+user+"@gmail.com").text
+				if '{"info":{"Status":"Available"' in gmail:
+					rm=requests.get("https://jftv.pythonanywhere.com/IGMail/"+user+"@gmail.com").text
 					if "Linked Or Ban" in rm:
 						print("\033[1;30m[\033[0;37m$\033[1;30m] Available : \033[1;32mYES")
-						print("\033[1;30m[\033[0;37m$\033[1;30m] Email Available :\033[1;32m "+eml)
+						print("\033[1;30m[\033[0;37m$\033[1;30m] Email Available :\033[1;32m "+user+"@gmail.com")
+						eml=user+"@gmail.com"
 					else:
-						print("\033[1;30m[\033[0;37m$\033[1;30m] Available : \033[1;31mNO")
-						ops()
+						print("\033[1;30m[\033[0;37m$\033[1;30m] Available : \033[1;31mNO"),ops()
 				else:
-					print("\033[1;30m[\033[0;37m$\033[1;30m] Available : \033[1;31mNO")
-					ops()
-		else:
-			print("\033[1;30m[\033[0;37m$\033[1;30m] Available : \033[1;31mNO")
-			ops()
+					print("\033[1;30m[\033[0;37m$\033[1;30m] Available : \033[1;31mNO"),ops()
+			elif "@g*****.com" in info["obfuscated_email"]:
+				p=requests.get("http://tweakpy-filza.ueuo.com/api.php?email="+user+"@googlemail.com").text
+				if "False" in p:
+					rm=requests.get("https://jftv.pythonanywhere.com/IGMail/"+user+"@googlemail.com").text
+					if "Linked Or Ban" in rm:
+						print("\033[1;30m[\033[0;37m$\033[1;30m] Available : \033[1;32mYES")
+						print("\033[1;30m[\033[0;37m$\033[1;30m] Email Available :\033[1;32m "+user+"@googlemail.com")
+						eml=user+"@googlemail.com"
+					else:
+						print("\033[1;30m[\033[0;37m$\033[1;30m] Available : \033[1;31mNO"),ops()
+				else:
+					print("\033[1;30m[\033[0;37m$\033[1;30m] Available : \033[1;31mNO"),ops()
 	except:
-		print("\033[1;30m[\033[0;37m$\033[1;30m] Email :\033[1;31m False")
-		ops()
+		print("\033[1;30m[\033[0;37m$\033[1;30m] Email :\033[1;31m False"),ops()
 	try:
 		po=info['obfuscated_phone']
 		print("\033[1;30m[\033[0;37m$\033[1;30m] Phone number :\033[1;32m "+ po)
