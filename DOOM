@@ -12,7 +12,7 @@ if X == 1 :
 	try:
 		tok=input("[?] TOKEN : ")
 		ic=input("[?] ID : ")
-		tel=requests.post(f"https://api.telegram.org/bot{tok}/sendMessage?chat_id={ic}&text=HI\nIf you have a problem tell me\nINSTA : @DOOM.OLD| TELE : @ZXXXXZV")
+		tel=requests.post(f"https://api.telegram.org/bot{tok}/sendMessage?chat_id={ic}&text=HI\nIf you have a problem tell me\nINSTA : @MTJR_DOOM| TELE : @ZXXXXZV")
 	except:
 		print("[!] Try with VPN ")
 		input("")
@@ -20,12 +20,12 @@ if X == 1 :
 else:
 	pass
 os.system('cls' if os.name == 'nt' else 'clear')#DOOM
-print("""\033[0;97mINSTA : DOOM.OLD – 968.OPS\n\033[1;34mIf you get a problem tell me in Instagram\nin » my instagram\nte » my telegram""")
+print("""\033[0;97mINSTA : MTJR_DOOM – 968.OPS\n\033[1;34mIf you get a problem tell me in Instagram\nin » my instagram\nte » my telegram""")
 def ops ():
 	print('\n'+'\033[1;30m='*20+'\n')
 	user=input("\033[1;30m[\033[0;37m?\033[1;30m] username or url user : \033[0;37m")
 	if user == "in":
-		webbrowser.open("https://instagram.com/968.ops"),ops()
+		webbrowser.open("https://instagram.com/MTJR_DOOM"),ops()
 	elif user == "te":
 		webbrowser.open("https://t.me/ZXXXXZV"),ops()
 	else:
@@ -147,7 +147,7 @@ def ops ():
 	except:
 		print("\033[1;30m[\033[0;37m$\033[1;30m] data : \033[1;31mFalse ")
 	if X == 1:
-		tel=requests.post(f"https://api.telegram.org/bot{tok}/sendMessage?chat_id={ic}&text=NEW OLD ACC\nUser : {user}\nEmail : {eml} Available or ban\nPhone : {po}\nData : {x2}\nINSTA : @DOOM.OLD | TELE : @ZXXXXZV")
+		tel=requests.post(f"https://api.telegram.org/bot{tok}/sendMessage?chat_id={ic}&text=NEW OLD ACC\nUser : {user}\nEmail : {eml} Available or ban\nPhone : {po}\nData : {x2}\nINSTA : MTJR_DOOM | TELE : @ZXXXXZV")
 	else:
 		pass
 	print('\n'+'\033[1;30m='*20+'\n')
