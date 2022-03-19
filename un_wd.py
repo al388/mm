@@ -8,7 +8,9 @@ user_agent = [
 X=int(input("[?] With telegram ? \n[!] 0 = NO | 1 = YES\n+> "))
 if X == 1 :
 	try:
-		requests.post(f"https://api.telegram.org/bot2067011374:AAErNH4sXT5UashL_E-WDw2C5di8AEsuKXQ/sendMessage?chat_id={ic}&text=HI\nIf you have a problem tell me\nINSTA : @UN.WD | TELE : @UN_WD")
+		tok=input("[?] TOKEN : ")
+		ic=input("[?] ID : ")
+		requests.post(f"https://api.telegram.org/bot{tok}/sendMessage?chat_id={ic}&text=HI\nIf you have a problem tell me\nINSTA : @UN.WD | TELE : @UN_WD")
 	except:
 		print("[!] Try with VPN ")
 		input("")
@@ -39,32 +41,34 @@ def ops ():
 		re = requests.post(url, headers=headers, cookies=cookies, data=data)
 		if re.status_code == 200:
 			pass
+		elif "spam" in re.text:
+			print("\033[1;30m[\033[1;31m!\033[1;30m] \033[1;31spam - try with VPN")
+			ops()
 		elif "Please wait a few minutes before you try again." in re.text:
 			print("\033[1;31m[!] wait 5m")
 			print('\n'+'\033[1;30m='*20+'\n')
 			sleep(60*5)
 		elif '"message":"يرجى الانتظار لبضع دقائق قبل إعادة المحاولة.","status":"fail"' in re.text :
-			print("\033[1;31m[!] wait 5m")
+			print("\033[1;30m[\033[1;31m!\033[1;30m] \033[1;31wait 5m")
 			print('\n'+'\033[1;30m='*20+'\n')
 			sleep(60*5)
 			ops()
 		elif '"message":"No users found","status":"fail"' in re.text :
-			print("\033[1;31m[!] No usere found")
+			print("\033[1;30m[\033[1;31m!\033[1;30m] \033[1;31No usere found")
 			print('\n'+'\033[1;30m='*20+'\n')
 			ops()
 		elif '{"message":"لم يتم العثور على مستخدمين","status":"fail"}'in re.text:
-			print("\033[1;31m[!] No usere found")
+			print("\033[1;30m[\033[1;31m!\033[1;30m] \033[1;31No usere found")
 			print('\n'+'\033[1;30m='*20+'\n')
 			ops()
 		else:
-			print("\033[1;31m[!] error")
+			print("\033[1;30m[\033[1;31m!\033[1;30m] \033[1;31error")
 			print(re.text)
 			print(re.status_code)
 			ops()
 		info = re.json()
 	except:
-		print("\033[1;31m[!] there is no Internet")
-		print('\n'+'\033[1;30m='*20+'\n')
+		print("\033[1;30m[\033[1;31m!\033[1;30m] \033[1;31mthere is no Internet")
 		ops()
 	try:
 		print("\033[1;30m[\033[0;37m$\033[1;30m] Email :\033[1;32m "+info['obfuscated_email'])
@@ -137,7 +141,7 @@ def ops ():
 		print("\033[1;30m[\033[0;37m$\033[1;30m] data : \033[1;31mFalse ")
 		x2="Flase"
 	if X == 1:
-		requests.post(f"https://api.telegram.org/bot2093822968:AAHWN4WaI2Oykbvat7393jECzpTnYx59Lrg/sendMessage?chat_id={ic}&text=NEW OLD ACC\nUser : {user}\nEmail : {eml} Available or ban\nPhone : {po}\nData : {x2}\nINSTA : @UN.WD | TELE : @UN_WD")
+		requests.post(f"https://api.telegram.org/bot{tok}/sendMessage?chat_id={ic}&text=NEW OLD ACC\nUser : {user}\nEmail : {eml} Available or ban\nPhone : {po}\nData : {x2}\nINSTA : @UN.WD | TELE : @UN_WD")
 	else:
 		pass
 	print('\n'+'\033[1;30m='*20+'\n')
