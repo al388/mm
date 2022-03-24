@@ -155,7 +155,8 @@ def ops1(user):
 		pass
 	print('\n'+'\033[1;30m='*20+'\n')
 def net():
-	for accs in open('list.txt').read().splitlines():
+	lis=input("[?] name list : ")
+	for accs in open(lis).read().splitlines():
 		user=str(accs).split('\n')[0]
 		ops1(user)
 		time.sleep(3)
