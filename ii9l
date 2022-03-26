@@ -293,9 +293,12 @@ def ops ():
 while True:
 	print('\n'+'\033[1;30m='*20+'\n')
 	vzbz=int(input("\033[1;30m[\033[0;37m?\033[1;30m] list.txt or not \n-> yes > 1 | no > 0 \n+> \033[0;37m"))
-	if vzbz == 1:
-		net()
-	elif vzbz == 0:
-		ops()
-	else:
-		print("[$] FUCK YOU")
+	try:
+		if vzbz == 1:
+			net()
+		elif vzbz == 0:
+			ops()
+		else:
+			print("[$] FUCK YOU")
+	except:
+		print("[$] ERROR")
