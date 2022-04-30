@@ -1,0 +1,61 @@
+import requests,os,random
+from time import sleep
+user_agent = [
+    "Instagram 99.4.0 S3od_al3nzi (Dmaral3noOoz)",'Instagram 155.0.0.37.107 Android (28/9; 320dpi; 720x1468; samsung; SM-A102U; a10e; exynos7885; en_US; 239490550)',
+    'Instagram 64.0.0.12.96 (iPhone8,1; iOS 12_0_1; pt_BR; pt-BR; scale=2.00; gamut=normal; 750x1334; 124976489)','Instagram 8.4.0 (iPhone7,2; iPhone OS 9_3_2; nb_NO; nb-NO; scale=2.00; 750x1334',
+    'Instagram 93.1.0.19.102 Android (21/5.0.2; 240dpi; 540x960; samsung; SM-G530H; fortuna3g; qcom; ar_AE; 154400379)'
+]
+print("""\033[0;97mINSTA : STORE_M5N\n\033[1;34mIf you get a problem tell me in Instagram""")
+def ops ():
+	print('\033[1;30m='*20)
+	user=input("\033[1;30m[\033[0;37m?\033[1;30m] username or url user :\033[0;37m")
+	try:
+		user=user.split("/")[3]
+		user=user.split("?")[0] or user.split("/")[0]
+	except:
+		pass
+	url = "https://i.instagram.com:443/api/v1/users/lookup/"
+	cookies = {"mid": "XOSINgABAAG1IDmaral3noOozrK0rrNSbPuSbzHq"}
+	x=random.choice(user_agent)
+	headers = {"Connection": "close", "X-IG-Connection-Type": "WIFI", "X-IG-Capabilities": "3R4=",
+           "Accept-Language": "ar-AE",
+           "Content-Type": "application/x-www-form-urlencoded; charset=UTF-8",
+           "User-Agent": x,
+           "Accept-Encoding": "gzip, deflate"}
+	data = {"signed_body": "35a2d547d3b6ff400f71387yhdffe0b789a903f86117eb6e2f3e573079b2f038.{\"q\":\"%s\"}" % user }
+	try:
+		re = requests.post(url, headers=headers, cookies=cookies, data=data)
+		if re.status_code == 200:
+			pass
+		elif "Please wait a few minutes before you try again." in re.text:
+			print("\033[1;31m[!] wait 5m")
+			sleep(60*5)
+		elif '"message":"يرجى الانتظار لبضع دقائق قبل إعادة المحاولة.","status":"fail"' in re.text :
+			print("\033[1;31m[!] wait 5m")
+			sleep(60*5)
+			ops()
+		elif '"message":"No users found","status":"fail"' in re.text :
+			print("\033[1;31m[!] No usere found")
+			ops()
+		elif '{"message":"لم يتم العثور على مستخدمين","status":"fail"}'in re.text:
+			print("\033[1;31m[!] No usere found")
+			ops()
+		else:
+			print("\033[1;31m[!] error")
+			print(re.text)
+			print(re.status_code)
+			ops()
+		info = re.json()
+	except:
+		print("\033[1;31m[!] there is no Internet")
+		ops()
+	try:
+		uid=info['user_id']
+		x=requests.get(f"https://o7aa.pythonanywhere.com/?id={uid}").text
+		x1=str(x).split('"data": ')[1]
+		x2=str(x1).split(', "telegram":')[0]
+		print("\033[1;30m[\033[0;37m$\033[1;30m] data :\033[1;32m "+x2)
+	except:
+		print("\033[1;30m[\033[0;37m$\033[1;30m] data : \033[1;31mFalse ")
+	ops()
+ops()
